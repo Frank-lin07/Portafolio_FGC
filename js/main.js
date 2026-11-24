@@ -18,19 +18,20 @@
     );
     }
 
-    function crearOndas(c, R) {
-    menu.querySelectorAll('.onda').forEach(function (o) { o.remove(); });
+function crearOndas(c, R) {
+    const capa = document.getElementById('menuOndas');
+    capa.innerHTML = '';
     const diametros = [R * 0.5, R * 0.95, R * 1.4, R * 1.85];
     diametros.forEach(function (d) {
-        const onda = document.createElement('div');
-        onda.className = 'onda';
-        onda.style.width = d + 'px';
-        onda.style.height = d + 'px';
-        onda.style.left = (c.x - d / 2) + 'px';
-        onda.style.top = (c.y - d / 2) + 'px';
-        menu.appendChild(onda);
+    const onda = document.createElement('div');
+    onda.className = 'onda';
+    onda.style.width = d + 'px';
+    onda.style.height = d + 'px';
+    onda.style.left = (c.x - d / 2) + 'px';
+    onda.style.top = (c.y - d / 2) + 'px';
+    capa.appendChild(onda);
     });
-    }
+}
 
     function abrirMenu() {
     if (animando) return;

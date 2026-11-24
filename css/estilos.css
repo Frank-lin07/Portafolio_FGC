@@ -197,3 +197,12 @@ a:focus-visible, button:focus-visible {
 }
 
 .menu-lista, .menu-pie { position: relative; z-index: 2; }
+
+.menu-ondas {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.menu-inmersion { overflow-x: hidden; }
