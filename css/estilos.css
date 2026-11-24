@@ -375,3 +375,54 @@ body.menu-abierto .logo-fgc { background-color: var(--color-fondo); }
 }
 
 .tarjeta-enlace:hover .tarjeta-ver { border-bottom-color: var(--color-principal); }
+
+/* Separador de onda de audio */
+.separador-onda {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-24);
+    padding: var(--espacio-64) 0;
+}
+
+.linea-onda { flex: 1; height: 1px; background: var(--color-neutro); }
+
+.barras {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 56px;
+}
+
+.barra {
+    display: block;
+    width: 2px;
+    height: 100%;
+    background: var(--color-principal);
+    border-radius: 2px;
+    transform-origin: center;
+}
+
+/* Llamado a contacto */
+.llamado { border-bottom: none; }
+.llamado h2 { max-width: 820px; margin: 0 auto var(--espacio-48); }
+
+/* Botón primario (átomo) */
+.boton-primario {
+    display: inline-block;
+    background: var(--color-principal);
+    color: var(--color-fondo);
+    font-family: var(--fuente-titulos);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: var(--espacio-16) var(--espacio-32);
+    border: 0;
+    border-radius: var(--radio-completo);
+    cursor: pointer;
+    transition: background-color var(--duracion-corta);
+}
+
+.boton-primario:hover { background: var(--color-texto); color: var(--color-fondo); }
+.boton-primario:disabled { background: var(--color-neutro); color: var(--color-secundario); cursor: not-allowed; }

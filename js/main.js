@@ -237,3 +237,31 @@ function activarRevelado() {
 }
 
 activarRevelado();
+
+function animarOndaAudio() {
+    const contenedor = document.getElementById('barrasAudio');
+    if (!contenedor) return;
+
+    const alturas = [0.25, 0.5, 0.35, 0.8, 0.55, 0.95, 0.4, 0.7, 0.3, 0.85, 0.5, 0.65, 0.3, 0.9, 0.45, 0.6, 0.35, 0.75, 0.4, 0.55, 0.3, 0.45];
+
+    alturas.forEach(function (a) {
+        const barra = document.createElement('span');
+        barra.className = 'barra';
+        barra.style.transform = 'scaleY(' + a + ')';
+        contenedor.appendChild(barra);
+    });
+
+    if (reducido) return;
+
+    anime({
+        targets: '.barra',
+        scaleY: function (el, i) { return [alturas[i], Math.min(1, alturas[i] + 0.35)]; },
+        direction: 'alternate',
+        loop: true,
+        delay: anime.stagger(90),
+        duration: 1100,
+        easing: 'easeInOutSine'
+    });
+}
+
+animarOndaAudio();
