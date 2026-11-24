@@ -259,7 +259,7 @@ function animarOndaAudio() {
         direction: 'alternate',
         loop: true,
         delay: anime.stagger(90),
-        duration: 1100,
+        duration: 600,
         easing: 'easeInOutSine'
     });
 }
