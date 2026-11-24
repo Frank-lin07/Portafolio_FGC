@@ -60,13 +60,15 @@ a:focus-visible, button:focus-visible {
 }
 
 .logo-fgc {
-    font-family: var(--fuente-titulos);
-    font-weight: 800;
-    font-size: 20px;
-    text-decoration: none;
-    color: var(--color-principal);
+    display: block;
+    width: 76px;
+    height: 36px;
+    background-color: var(--color-principal);
+    -webkit-mask: url('../imgs/monograma-fgc.svg') no-repeat left center / contain;
+    mask: url('../imgs/monograma-fgc.svg') no-repeat left center / contain;
     position: relative;
     z-index: 1200;
+    transition: background-color var(--duracion-corta);
 }
 
 /* Botón gota: es un cuadrado con tres esquinas redondas*/
@@ -125,6 +127,8 @@ a:focus-visible, button:focus-visible {
 .menu-inmersion.abierto { visibility: visible; }
 
 .menu-lista { list-style: none; margin: 0; padding: 0; }
+
+body.menu-abierto .logo-fgc { background-color: var(--color-fondo); }
 
 .menu-enlace {
     display: inline-block;
