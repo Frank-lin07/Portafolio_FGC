@@ -45,7 +45,7 @@ a:focus-visible, button:focus-visible {
 .salto:focus { left: var(--espacio-16); top: var(--espacio-8); z-index: 3000; }
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
 }
 
 /* Cabecera */
@@ -154,3 +154,13 @@ a:focus-visible, button:focus-visible {
 body.menu-abierto { overflow: hidden; }
 body.menu-abierto .logo-fgc { color: var(--color-fondo); }
 body.menu-abierto .gota { color: var(--color-fondo); }
+
+/* Anillos de onda del menú */
+.onda {
+    position: absolute;
+    border: 1px solid rgba(253, 250, 231, 0.18);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.menu-lista, .menu-pie { position: relative; z-index: 2; }
