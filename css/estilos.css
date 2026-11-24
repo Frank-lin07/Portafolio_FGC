@@ -117,8 +117,9 @@ a:focus-visible, button:focus-visible {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 140px var(--espacio-32) var(--espacio-32);
     visibility: hidden;
+    padding: 120px var(--espacio-32) var(--espacio-48);
+    overflow-y: auto;
 }
 
 .menu-inmersion.abierto { visibility: visible; }
@@ -129,7 +130,7 @@ a:focus-visible, button:focus-visible {
     display: inline-block;
     font-family: var(--fuente-titulos);
     font-weight: 800;
-    font-size: clamp(32px, 7vw, 88px);
+    font-size: clamp(32px, min(7vw, 11vh), 88px);
     line-height: 1.15;
     color: var(--color-fondo);
     text-decoration: none;
@@ -143,17 +144,49 @@ a:focus-visible, button:focus-visible {
 .menu-pie {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     flex-wrap: wrap;
-    gap: var(--espacio-16);
-    border-top: 1px solid rgba(253, 250, 231, 0.2);
-    padding-top: var(--espacio-24);
+    gap: var(--espacio-24);
+    border-top: 1px solid rgba(253, 250, 231, 0.15);
+    padding-top: var(--espacio-32);
 }
 
-.menu-pie a { color: var(--color-fondo); font-size: 16px; }
+.menu-dato {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-8);
+}
 
-body.menu-abierto { overflow: hidden; }
-body.menu-abierto .logo-fgc { color: var(--color-fondo); }
-body.menu-abierto .gota { color: var(--color-fondo); }
+.menu-dato-derecha { text-align: right; }
+
+.menu-etiqueta {
+    font-family: var(--fuente-titulos);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-secundario);
+}
+
+.menu-pie a {
+    font-family: var(--fuente-titulos);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-fondo);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--duracion-corta), color var(--duracion-corta);
+}
+
+.menu-pie a:hover {
+    color: var(--color-neutro);
+    border-bottom-color: var(--color-secundario);
+}
+
+@media (max-width: 575px) {
+    .menu-dato-derecha { text-align: left; }
+}
 
 /* Anillos de onda del menú */
 .onda {
