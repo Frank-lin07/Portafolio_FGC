@@ -206,31 +206,33 @@ function animarEntrada() {
 animarEntrada();
 
 function activarRevelado() {
-    const elementos = document.querySelectorAll('.revelar');
-    if (!elementos.length) return;
-
     if (reducido || !('IntersectionObserver' in window)) return;
 
-    anime.set(elementos, { opacity: 0, translateY: 40 });
+    const DISTANCIA = 70;    
+    const DURACION = 1500;   
+    const ESPERA = 220;      
 
-    const observador = new IntersectionObserver(function (entradas) {
-    entradas.forEach(function (entrada) {
-        if (entrada.isIntersecting) {
-        anime({
-            targets: entrada.target,
+    document.querySelectorAll('main section').forEach(function (seccion) {
+        const items = seccion.querySelectorAll('.revelar');
+        if (!items.length) return;
+
+        anime.set(items, { opacity: 0, translateY: DISTANCIA });
+
+        const observador = new IntersectionObserver(function (entradas) {
+        if (entradas[0].isIntersecting) {
+            anime({
+            targets: items,
             opacity: [0, 1],
-            translateY: [40, 0],
-            duration: 900,
-            easing: 'easeOutCubic'
-        });
-        observador.unobserve(entrada.target);
+            translateY: [DISTANCIA, 0],
+            delay: anime.stagger(ESPERA),
+            duration: DURACION,
+            easing: 'easeOutQuart'
+            });
+            observador.disconnect();
         }
-    });
-    }, { threshold: 0.2 });
+        }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
 
-    elementos.forEach(function (el, i) {
-    el.style.transitionDelay = (i % 3) * 80 + 'ms';
-    observador.observe(el);
+        observador.observe(seccion);
     });
 }
 
