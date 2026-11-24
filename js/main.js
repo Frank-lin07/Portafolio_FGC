@@ -204,3 +204,34 @@ function animarEntrada() {
 }
 
 animarEntrada();
+
+function activarRevelado() {
+    const elementos = document.querySelectorAll('.revelar');
+    if (!elementos.length) return;
+
+    if (reducido || !('IntersectionObserver' in window)) return;
+
+    anime.set(elementos, { opacity: 0, translateY: 40 });
+
+    const observador = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (entrada) {
+        if (entrada.isIntersecting) {
+        anime({
+            targets: entrada.target,
+            opacity: [0, 1],
+            translateY: [40, 0],
+            duration: 900,
+            easing: 'easeOutCubic'
+        });
+        observador.unobserve(entrada.target);
+        }
+    });
+    }, { threshold: 0.2 });
+
+    elementos.forEach(function (el, i) {
+    el.style.transitionDelay = (i % 3) * 80 + 'ms';
+    observador.observe(el);
+    });
+}
+
+activarRevelado();
