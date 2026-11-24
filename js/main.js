@@ -145,3 +145,62 @@ function crearOndas(c, R) {
     document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && abierto) { cerrarMenu(); }
     });
+
+function animarEntrada() {
+    const entrada = document.getElementById('inicio');
+    if (!entrada) return;
+
+    const capa = document.getElementById('entradaOndas');
+    const gotaEl = document.getElementById('gotaCae');
+    const revelar = entrada.querySelectorAll('[data-reveal]');
+
+    [260, 460, 700, 960, 1260].forEach(function (d) {
+    const anillo = document.createElement('div');
+    anillo.className = 'anillo-entrada';
+    anillo.style.width = d + 'px';
+    anillo.style.height = d + 'px';
+    anillo.style.marginLeft = (-d / 2) + 'px';
+    anillo.style.marginTop = (-d / 2) + 'px';
+    capa.appendChild(anillo);
+    });
+
+    if (reducido) return;
+
+    anime.set(revelar, { opacity: 0, translateY: 30 });
+    anime.set('.anillo-entrada', { opacity: 0, scale: 0.3 });
+
+    const destino = entrada.offsetHeight / 2 - 10;
+
+    anime.timeline({ easing: 'easeOutQuad' })
+    .add({
+        targets: gotaEl,
+        opacity: [0, 1],
+        translateY: [-20, destino],
+        duration: 800,
+        easing: 'easeInQuad'
+    })
+    .add({
+        targets: gotaEl,
+        scale: [1, 0],
+        opacity: 0,
+        duration: 200
+    })
+    .add({
+        targets: '.anillo-entrada',
+        opacity: [0, 1],
+        scale: [0.3, 1],
+        delay: anime.stagger(120),
+        duration: 1400,
+        easing: 'easeOutQuart'
+    }, '-=100')
+    .add({
+        targets: revelar,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        delay: anime.stagger(150),
+        duration: 800,
+        easing: 'easeOutCubic'
+    }, '-=1000');
+}
+
+animarEntrada();
