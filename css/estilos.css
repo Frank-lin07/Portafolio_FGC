@@ -69,32 +69,43 @@ a:focus-visible, button:focus-visible {
     z-index: 1200;
 }
 
-/* Botón gota: es un cuadrado con tres esquinas redondas, girado.
-Para volverlo círculo, cambia border-radius a 50% y quita el transform. */
+/* Botón gota: es un cuadrado con tres esquinas redondas*/
+
 .gota {
-    width: 72px;
-    height: 72px;
+    width: 64px;
+    height: 92px;
     background: transparent;
-    border: 1px solid var(--color-principal);
-    border-radius: 0 50% 50% 50%;
-    transform: rotate(45deg);
+    border: 0;
+    padding: 0;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     z-index: 1200;
+    color: var(--color-principal);
+}
+
+.gota-forma {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.2;
 }
 
 .gota-texto {
-    display: block;
-    transform: rotate(-45deg);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 67%;
+    transform: translateY(-50%);
+    text-align: center;
     font-family: var(--fuente-titulos);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-principal);
+    color: currentColor;
 }
 
 /* Menú de inmersión (cerrado por defecto) */
@@ -142,5 +153,4 @@ Para volverlo círculo, cambia border-radius a 50% y quita el transform. */
 
 body.menu-abierto { overflow: hidden; }
 body.menu-abierto .logo-fgc { color: var(--color-fondo); }
-body.menu-abierto .gota { border-color: var(--color-fondo); }
-body.menu-abierto .gota-texto { color: var(--color-fondo); }
+body.menu-abierto .gota { color: var(--color-fondo); }
