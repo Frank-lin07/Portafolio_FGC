@@ -453,16 +453,24 @@ body.menu-abierto .logo-fgc { background-color: var(--color-fondo); }
 .pie-datos { display: flex; flex-direction: column; gap: var(--espacio-8); text-align: right; }
 .pie-datos a { color: var(--color-fondo); font-size: 16px; }
 
+.pie-ondas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
 .pie-ondas span {
     position: absolute;
-    right: -120px;
-    bottom: -160px;
-    border: 1px solid rgba(253, 250, 231, 0.2);
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(253, 250, 231, 0.22);
     border-radius: 50%;
+    transform: translate(-50%, -50%);
 }
-.pie-ondas span:nth-child(1) { width: 320px; height: 320px; margin: 0 80px 80px 0; }
-.pie-ondas span:nth-child(2) { width: 520px; height: 520px; margin: 0 -20px -20px 0; }
-.pie-ondas span:nth-child(3) { width: 760px; height: 760px; margin: 0 -140px -140px 0; }
+
+.pie-ondas span:nth-child(1) { width: 360px;  height: 360px; }
+.pie-ondas span:nth-child(2) { width: 640px;  height: 640px; }
+.pie-ondas span:nth-child(3) { width: 960px;  height: 960px; }
 
 @media (max-width: 767px) {
     .pie-datos { text-align: left; }
