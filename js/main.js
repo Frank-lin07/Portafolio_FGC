@@ -265,3 +265,56 @@ function animarOndaAudio() {
 }
 
 animarOndaAudio();
+
+function activarReproductores() {
+    document.querySelectorAll('.reproductor').forEach(function (rep) {
+        const btn = rep.querySelector('.rep-boton');
+        const contenedor = rep.querySelector('.rep-barras');
+        const audio = rep.querySelector('audio');
+        const fuente = rep.getAttribute('data-audio');
+        if (fuente) { audio.src = fuente; }
+
+        const alturas = [0.3, 0.55, 0.4, 0.8, 0.5, 0.95, 0.35, 0.7, 0.45, 0.85, 0.3, 0.6, 0.9, 0.4, 0.75, 0.5, 0.3, 0.65, 0.85, 0.45, 0.55, 0.35, 0.7, 0.4, 0.6, 0.3, 0.8, 0.5, 0.45, 0.65];
+        alturas.forEach(function (a) {
+        const b = document.createElement('span');
+        b.className = 'barra';
+        b.style.transform = 'scaleY(' + a + ')';
+        contenedor.appendChild(b);
+        });
+
+        let animacion = null;
+
+        function iniciar() {
+        rep.classList.add('sonando');
+        btn.setAttribute('aria-pressed', 'true');
+        btn.setAttribute('aria-label', 'Pausar episodio');
+        if (fuente) { audio.play(); }
+        if (reducido) return;
+        animacion = anime({
+            targets: contenedor.querySelectorAll('.barra'),
+            scaleY: function (el, i) { return [alturas[i], Math.min(1, alturas[i] + 0.4)]; },
+            direction: 'alternate',
+            loop: true,
+            delay: anime.stagger(60),
+            duration: 700,
+            easing: 'easeInOutSine'
+        });
+        }
+
+        function detener() {
+        rep.classList.remove('sonando');
+        btn.setAttribute('aria-pressed', 'false');
+        btn.setAttribute('aria-label', 'Reproducir episodio');
+        if (fuente) { audio.pause(); }
+        if (animacion) { animacion.pause(); }
+        }
+
+        btn.addEventListener('click', function () {
+        if (rep.classList.contains('sonando')) { detener(); } else { iniciar(); }
+        });
+
+        audio.addEventListener('ended', detener);
+    });
+}
+
+activarReproductores();

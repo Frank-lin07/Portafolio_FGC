@@ -498,3 +498,96 @@ body.menu-abierto .logo-fgc { background-color: var(--color-fondo); }
 }
 
 .indice a:hover { color: var(--color-principal); text-decoration: underline; text-underline-offset: 6px; }
+
+/* Caso de estudio */
+.caso {
+    padding: var(--espacio-96) 0;
+    border-bottom: 1px solid var(--color-neutro);
+    scroll-margin-top: 20px;
+}
+
+.caso h2 { margin-bottom: var(--espacio-32); }
+
+.caso-imagen {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--color-texto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: var(--espacio-32);
+}
+
+.caso-imagen img { width: 100%; height: 100%; object-fit: cover; }
+
+.caso-datos { margin-top: var(--espacio-32); }
+
+.dato { border-top: 1px solid var(--color-neutro); padding-top: var(--espacio-16); height: 100%; }
+
+.dato-titulo {
+    display: block;
+    font-family: var(--fuente-titulos);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-principal);
+    margin-bottom: var(--espacio-8);
+}
+
+.dato p { font-size: 16px; margin: 0; }
+
+/* Reproductor de audio */
+.reproductor {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-24);
+    background: var(--color-texto);
+    padding: var(--espacio-16) var(--espacio-24);
+    margin-bottom: var(--espacio-32);
+}
+
+.rep-boton {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-principal);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rep-boton svg { width: 20px; height: 20px; fill: var(--color-fondo); }
+.rep-boton .icono-pausa { display: none; }
+.reproductor.sonando .icono-play { display: none; }
+.reproductor.sonando .icono-pausa { display: block; }
+
+.rep-etiqueta {
+    font-family: var(--fuente-titulos);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-fondo);
+}
+
+.rep-barras {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.rep-barras .barra { background: var(--color-secundario); }
+.reproductor.sonando .rep-barras .barra { background: var(--color-fondo); }
+
+@media (max-width: 575px) {
+    .caso { padding: var(--espacio-64) 0; }
+    .rep-etiqueta { display: none; }
+}
