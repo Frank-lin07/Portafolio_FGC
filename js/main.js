@@ -325,3 +325,60 @@ if (enlaceContacto) {
         if (abierto) { cerrarMenu(); }
     });
 }
+
+function activarFormulario() {
+    const form = document.getElementById('formContacto');
+    if (!form) return;
+
+    const reglas = [
+        { id: 'nombre', valido: function (v) { return v.trim().length >= 3; }, texto: 'Escribe tu nombre (mínimo 3 letras).' },
+        { id: 'correo', valido: function (v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }, texto: 'Ingresa un correo electrónico válido para poder responderte.' },
+        { id: 'mensaje', valido: function (v) { return v.trim().length >= 10; }, texto: 'Cuéntame un poco más (mínimo 10 caracteres).' }
+    ];
+
+    const exito = document.getElementById('exito');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let todoValido = true;
+        let primerError = null;
+
+        reglas.forEach(function (regla) {
+        const campo = document.getElementById(regla.id);
+        const contenedor = campo.parentElement;
+        const error = document.getElementById('error-' + regla.id);
+
+        if (regla.valido(campo.value)) {
+            contenedor.classList.remove('con-error');
+            error.textContent = '';
+        } else {
+            contenedor.classList.add('con-error');
+            error.textContent = regla.texto;
+            todoValido = false;
+            if (!primerError) { primerError = campo; }
+        }
+        });
+
+        if (todoValido) {
+        form.reset();
+        exito.hidden = false;
+        if (!reducido) {
+            anime({ targets: exito, opacity: [0, 1], translateY: [20, 0], duration: 700, easing: 'easeOutCubic' });
+        }
+        } else {
+        exito.hidden = true;
+        primerError.focus();
+        }
+    });
+
+    reglas.forEach(function (regla) {
+        document.getElementById(regla.id).addEventListener('input', function () {
+        if (regla.valido(this.value)) {
+            this.parentElement.classList.remove('con-error');
+            document.getElementById('error-' + regla.id).textContent = '';
+        }
+        });
+    });
+    }
+
+activarFormulario();

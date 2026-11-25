@@ -129,7 +129,47 @@
             </div>
         </section>
 
-        <!-- Aquí va el contacto (commit 14) -->
+        <section class="seccion-amplia" id="contacto">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <p class="etiqueta revelar">Contacto — 06 m</p>
+                        <h2 class="revelar">Conversemos sobre tu proyecto.</h2>
+                        <p class="revelar">Disponible para proyectos audiovisuales, documentales, dirección de arte y postproducción sonora desde Pereira, Colombia.</p>
+                        <p class="etiqueta revelar">Correo directo</p>
+                        <p class="revelar"><a href="mailto:grisalescastrillonfranklin@gmail.com">grisalescastrillonfranklin@gmail.com</a></p>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <form id="formContacto" class="revelar" novalidate>
+                            <div class="campo">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name">
+                                <span class="mensaje-error" id="error-nombre" role="alert"></span>
+                            </div>
+                            
+                            <div class="campo">
+                                <label for="correo">Correo</label>
+                                <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" autocomplete="email">
+                                <span class="mensaje-error" id="error-correo" role="alert"></span>
+                            </div>
+
+                            <div class="campo">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame de tu proyecto"></textarea>
+                                <span class="mensaje-error" id="error-mensaje" role="alert"></span>
+                            </div>
+                            
+                            <button type="submit" class="boton-primario">Enviar mensaje</button>
+                            <div class="mensaje-exito" id="exito" role="status" hidden>
+                                <strong>Mensaje enviado</strong>
+                                <span>Gracias por escribir. Franklin responderá pronto.</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
