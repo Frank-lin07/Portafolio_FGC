@@ -318,3 +318,10 @@ function activarReproductores() {
 }
 
 activarReproductores();
+
+const enlaceContacto = document.getElementById('enlaceContacto');
+if (enlaceContacto) {
+    enlaceContacto.addEventListener('click', function () {
+        if (abierto) { cerrarMenu(); }
+    });
+}

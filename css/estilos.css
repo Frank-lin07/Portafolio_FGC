@@ -591,3 +591,44 @@ body.menu-abierto .logo-fgc { background-color: var(--color-fondo); }
     .caso { padding: var(--espacio-64) 0; }
     .rep-etiqueta { display: none; }
 }
+
+/* Presentación */
+.presentacion {
+    padding: 160px 0 var(--espacio-96);
+    border-bottom: 1px solid var(--color-neutro);
+}
+
+.titulo-perfil { font-size: clamp(36px, 5vw, 64px); margin: var(--espacio-16) 0 var(--espacio-24); }
+
+/* Bloque de método */
+.bloque-metodo {
+    background: #F3EFD9;
+    border: 1px solid var(--color-neutro);
+    padding: var(--espacio-32);
+    height: 100%;
+}
+
+.bloque-metodo h3 { margin: var(--espacio-16) 0 var(--espacio-8); }
+.bloque-metodo p { font-size: 16px; margin: 0; }
+
+/* Chip de habilidad */
+.lista-chips {
+    list-style: none;
+    padding: 0;
+    margin: var(--espacio-32) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-16);
+}
+
+.chip {
+    font-family: var(--fuente-titulos);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-principal);
+    border: 1px solid var(--color-principal);
+    border-radius: var(--radio-completo);
+    padding: var(--espacio-8) var(--espacio-16);
+}
