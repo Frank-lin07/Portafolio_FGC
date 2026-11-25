@@ -6,9 +6,17 @@ Realizador Audiovisual. Momento Evaluativo 2 de Aplicaciones móviles y web
 (UCC), Ruta B: desarrollo a medida. **Versión 2**, rehecha tras la revisión del
 docente con una identidad más propia.
 
-- **Sitio publicado:** Pendiente
-- **Prototipo y Design System (Figma):** Pendiente
-- **Versión 1 (evidencia del proceso):** Pendiente
+- **Sitio publicado:** https://franklin-grisales-castrillon.netlify.app
+- **Prototipo y Design System (Figma):** https://www.figma.com/design/Tx8rmeRJXL15LL96Dg6vW5/Portafolio_FGC?node-id=0-1&t=Gbws3d3WxrYF8r6U-1
+- **Repositorio:** https://github.com/Frank-lin07/Portafolio_FGC
+
+### Versión 1 (evidencia del proceso)
+Tras la revisión del docente, el sitio se rehízo desde cero con una identidad más propia.
+La primera versión se conserva como evidencia:
+
+- Sitio: https://portafoliofgc.netlify.app
+- Repositorio: https://github.com/Frank-lin07/FGC_portafolio_NO
+- Figma: https://www.figma.com/design/qSoP1aijzwWpbzeHirBcEX/FGC_Portafolio_NO
 
 ## Concepto
 
