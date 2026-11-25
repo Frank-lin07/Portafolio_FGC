@@ -475,3 +475,26 @@ body.menu-abierto .logo-fgc { background-color: var(--color-fondo); }
 @media (max-width: 767px) {
     .pie-datos { text-align: left; }
 }
+
+/* Encabezado de páginas internas */
+.encabezado-pagina {
+    padding: 180px 0 var(--espacio-48);
+    border-bottom: 1px solid var(--color-neutro);
+}
+
+.indice {
+    display: flex;
+    gap: var(--espacio-32);
+    margin-top: var(--espacio-32);
+}
+
+.indice a {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    font-size: clamp(22px, 3vw, 32px);
+    color: var(--color-secundario);
+    text-decoration: none;
+    transition: color var(--duracion-corta);
+}
+
+.indice a:hover { color: var(--color-principal); text-decoration: underline; text-underline-offset: 6px; }
